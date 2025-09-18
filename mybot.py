@@ -5,7 +5,7 @@ from aiogram import Bot, Dispatcher, types
 from aiogram.utils.executor import start_webhook
 
 API_TOKEN = os.getenv("8380395268:AAHcRYxmenMO8WHfgJcC8Y-dESeZgwxrUYY")  # токен от BotFather
-WEBHOOK_HOST = os.getenv("WEBHOOK_HOST")  # URL Render, например https://my-tg-bot.onrender.com
+WEBHOOK_HOST = os.getenv("https://mybot-v1-2u8v.onrender.com")  # URL Render, например https://my-tg-bot.onrender.com
 WEBHOOK_PATH = f"/webhook/{API_TOKEN}"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
 
