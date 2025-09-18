@@ -44,13 +44,11 @@ async def on_shutdown(app):
 
 async def handle(request):
     data = await request.json()
-
-    from aiogram import types
     update = types.Update(**data)
 
     # ВАЖНО: задаём текущий bot
-    from aiogram import Bot
     Bot.set_current(bot)
+    Dispatcher.set_current(dp)
 
     await dp.process_update(update)
     return web.Response()
