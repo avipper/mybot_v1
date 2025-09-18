@@ -8,7 +8,7 @@ WEBHOOK_HOST = os.getenv("WEBHOOK_HOST") # URL Render, например https://
 
 # Проверка наличия токена
 if not API_TOKEN:
-raise ValueError("Переменная окружения BOT_TOKEN не установлена! Установите токен от BotFather.")
+    raise ValueError("Переменная окружения BOT_TOKEN не установлена! Установите токен от BotFather.")
 
 WEBHOOK_PATH = f"/webhook/{API_TOKEN}"
 WEBHOOK_URL = f"{WEBHOOK_HOST}{WEBHOOK_PATH}"
