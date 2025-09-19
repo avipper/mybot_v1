@@ -2,6 +2,7 @@ import os
 from aiohttp import web
 from aiogram import Bot, Dispatcher, types
 from aiogram.utils.executor import start_webhook
+from textblob import TextBlob
 
 API_TOKEN = os.getenv("BOT_TOKEN") # Получение токена из переменных окружения
 # WEBHOOK_HOST = os.getenv("WEBHOOK_HOST") # URL Render, например https://my-tg-bot.onrender.com
@@ -60,7 +61,15 @@ async def handle(request):
     await dp.process_update(update)
     return web.Response()
 
-
+def analyze_sentiment(text):
+    analysis = TextBlob(text)
+    if analysis.sentiment.polarity > 0.1:
+        return "positive 😊"
+    elif analysis.sentiment.polarity < -0.1:
+        return "negative 😠"
+    else:
+        return "neutral 😐"
+        
 def main():
     app = web.Application()
     app.router.add_post(WEBHOOK_PATH, handle)
