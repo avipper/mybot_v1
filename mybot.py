@@ -60,7 +60,7 @@ async def handle(request):
     Dispatcher.set_current(dp)
 
     await dp.process_update(update)
-    return web.Response()
+    return web.Response(text="OK")
 
 def analyze_sentiment(text):
     analysis = TextBlob(text)
