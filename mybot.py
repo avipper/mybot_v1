@@ -28,8 +28,15 @@ async def send_welcome(message: types.Message):
 
 @dp.message_handler()
 async def echo(message: types.Message):
-    await message.answer(message.text)
-
+    # Вместо простого эха можно добавить любую логику:  
+    # 1. Анализ sentiment
+    sentiment = analyze_sentiment(message.text)
+    await message.answer(f"Текст: {message.text}\nНастроение: {sentiment}")    
+    # 2. Интеграция с AI (как DeepSeek)
+    # ai_response = await get_ai_response(message.text)
+    # await message.answer(ai_response)
+    # 3. Логирование
+    print(f"User {message.from_user.id} said: {message.text}")
 
 async def on_startup(app):
     # Устанавливаем webhook
