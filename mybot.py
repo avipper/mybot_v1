@@ -65,9 +65,9 @@ async def handle(request):
 
 def analyze_sentiment(text):
     analysis = TextBlob(text)
-    if analysis.sentiment.polarity > 0.1:
+    if analysis.sentiment.polarity > 0.3:
         return "positive 😊"
-    elif analysis.sentiment.polarity < -0.1:
+    elif analysis.sentiment.polarity < -0.3:
         return "negative 😠"
     else:
         return "neutral 😐"
