@@ -70,7 +70,7 @@ def analyze_sentiment(text):
     elif analysis.sentiment.polarity < -0.3:
         return "negative 😠"
     else:
-        return "neutral 😐"
+        return "neutral 😐", analysis.sentiment.polarity
         
 def main():
     app = web.Application()
